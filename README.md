@@ -95,7 +95,8 @@ This is a website project for a React and Node.JS programming course. This cours
 
 ### Built With
 
-* [![React][React.js]][React-url]
+* HTML
+* CSS
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -104,32 +105,16 @@ This is a website project for a React and Node.JS programming course. This cours
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+These are the instructions how to launch this project.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Download repository.
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+1. Locate index.html
+2. Click index.html to open it in an internet browser
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -138,7 +123,7 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
++
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
@@ -149,9 +134,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
+- [ ] Feature 0
+- [ ] Feature 00
+- [ ] Feature 000
     - [ ] Nested Feature
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
@@ -190,9 +175,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Michal Leon Pikulski - [@twitter_handle](https://twitter.com/twitter_handle) - piqulsky@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/Piqulsky/esmovia](https://github.com/Piqulsky/esmovia)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
