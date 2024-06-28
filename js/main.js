@@ -61,7 +61,7 @@ textInput.addEventListener("keypress", e => {
 })
 
 document.getElementById("typeSelect").addEventListener("change", e => {
-    currentType = e.target.value;
+    currentType = parseInt(e.target.value);
     setTasks();
 })
 
