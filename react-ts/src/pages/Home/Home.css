@@ -1,0 +1,28 @@
+.character-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.character-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 200px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.character-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.character-name {
+  margin: 12px 0 8px;
+}
+
+.character-card p {
+  margin: 4px 0;
+}
