@@ -11,6 +11,7 @@ import Footer from "../../common/footer/Footer";
 import { useMyContext } from "../../../MyContextProvider";
 import RecipesPage from "../recipes/Recipes";
 import RecipeDetails from "../details/RecipeDetails";
+import Profile from "../profile/Profile";
 
 function Body() {
   const { token } = useMyContext();
@@ -25,6 +26,7 @@ function Body() {
           <>
             <Route path="/recipes" element={<RecipesPage />} />
             <Route path="/details" element={<RecipeDetails />} />
+            <Route path="/profile" element={<Profile />} />
           </>
         )}
       </Routes>

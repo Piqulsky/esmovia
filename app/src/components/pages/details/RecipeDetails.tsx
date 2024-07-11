@@ -1,17 +1,42 @@
+import { useEffect, useState } from "react";
 import { useMyContext } from "../../../MyContextProvider"; // Import the custom context hook
-import { Container, Image, Text, Badge, Card, Group } from "@mantine/core"; // Import Mantine UI components
+import {
+  Container,
+  Image,
+  Text,
+  Badge,
+  Card,
+  Group,
+  ActionIcon,
+} from "@mantine/core"; // Import Mantine UI components
+import { IconHeartFilled } from "@tabler/icons-react";
 
 function RecipeDetails() {
-  const { recipe } = useMyContext(); // Access recipe from context
+  const { recipe, favorites, addFavorite, removeFavorite } = useMyContext(); // Access recipe from context
+  const [favorited, setFavorited] = useState(false);
+
+  useEffect(() => {
+    if (favorites.find((n) => n == recipe?.id)) setFavorited(true);
+  }, [favorites]);
+
+  const toggleFavorite = () => {
+    setFavorited(!favorited);
+    if (recipe != undefined) {
+      if (!favorited) addFavorite(recipe.id);
+      else removeFavorite(recipe.id);
+    }
+  };
 
   if (!recipe) {
     return <div>No recipe selected.</div>;
   }
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth", // Optional: Smooth scrolling behavior
-  });
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Optional: Smooth scrolling behavior
+    });
+  }, []);
 
   return (
     <Container size="sm">
@@ -23,6 +48,14 @@ function RecipeDetails() {
         <Text>
           <Badge color="blue">{recipe.cuisine}</Badge>
         </Text>
+        <ActionIcon
+          onClick={toggleFavorite}
+          color={favorited ? "red" : "gray"}
+          variant="transparent"
+          size="lg"
+        >
+          <IconHeartFilled />
+        </ActionIcon>
         <Text style={{ marginTop: "10px" }}>
           <strong>Difficulty:</strong> {recipe.difficulty}
         </Text>

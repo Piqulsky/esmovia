@@ -8,17 +8,27 @@ import { useNavigate } from "react-router-dom";
 function RecipesPage() {
   const navigate = useNavigate();
   const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const { setRecipe } = useMyContext();
+  const { setRecipe, search } = useMyContext();
 
   useEffect(() => {
-    fetch("https://dummyjson.com/recipes")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.recipes) {
-          setRecipes(data.recipes);
-        }
-      });
-  }, []);
+    if (search.length == 0) {
+      fetch("https://dummyjson.com/recipes")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.recipes) {
+            setRecipes(data.recipes);
+          }
+        });
+    } else {
+      fetch(`https://dummyjson.com/recipes/search?q=${search}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.recipes) {
+            setRecipes(data.recipes);
+          }
+        });
+    }
+  }, [search]);
 
   function handleDetailsClick(recipe: Recipe) {
     setRecipe(recipe);
