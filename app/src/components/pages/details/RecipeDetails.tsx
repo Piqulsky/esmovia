@@ -8,35 +8,31 @@ import {
   Card,
   Group,
   ActionIcon,
+  Rating,
 } from "@mantine/core"; // Import Mantine UI components
 import { IconHeartFilled } from "@tabler/icons-react";
 
 function RecipeDetails() {
-  const { recipe, favorites, addFavorite, removeFavorite } = useMyContext(); // Access recipe from context
-  const [favorited, setFavorited] = useState(false);
-
-  useEffect(() => {
-    if (favorites.find((n) => n == recipe?.id)) setFavorited(true);
-  }, [favorites]);
-
-  const toggleFavorite = () => {
-    setFavorited(!favorited);
-    if (recipe != undefined) {
-      if (!favorited) addFavorite(recipe.id);
-      else removeFavorite(recipe.id);
-    }
-  };
+  const { recipe, rated, addRating } = useMyContext(); // Access recipe from context
+  const [rate, setRate] = useState<number>(0);
 
   if (!recipe) {
     return <div>No recipe selected.</div>;
   }
 
   useEffect(() => {
+    if (Object.keys(rated).find((n) => n == recipe.id.toString()))
+      setRate(rated[recipe.id.toString()]);
     window.scrollTo({
       top: 0,
       behavior: "smooth", // Optional: Smooth scrolling behavior
     });
   }, []);
+
+  const handleRating = (val: number) => {
+    setRate(val);
+    addRating(recipe.id.toString(), val);
+  };
 
   return (
     <Container size="sm">
@@ -48,14 +44,7 @@ function RecipeDetails() {
         <Text>
           <Badge color="blue">{recipe.cuisine}</Badge>
         </Text>
-        <ActionIcon
-          onClick={toggleFavorite}
-          color={favorited ? "red" : "gray"}
-          variant="transparent"
-          size="lg"
-        >
-          <IconHeartFilled />
-        </ActionIcon>
+        <Rating value={rate} onChange={handleRating} />
         <Text style={{ marginTop: "10px" }}>
           <strong>Difficulty:</strong> {recipe.difficulty}
         </Text>

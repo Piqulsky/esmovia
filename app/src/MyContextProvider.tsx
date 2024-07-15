@@ -10,9 +10,8 @@ interface MyContextState {
   setRecipe: (recipe: Recipe) => void;
   search: string;
   setSearch: (search: string) => void;
-  favorites: number[];
-  addFavorite: (favorite: number) => void;
-  removeFavorite: (favorite: number) => void;
+  rated: { [key: string]: number };
+  addRating: (id: string, rating: number) => void;
 }
 
 // Create the context with a default value
@@ -23,7 +22,7 @@ function MyProvider(props: { children: ReactNode }) {
   const [token, setTokenState] = useState<string | null>(null);
   const [recipe, setRecipeState] = useState<Recipe | null>(null);
   const [search, setSearchState] = useState<string>("");
-  const [favorites, setFavoriteState] = useState<number[]>([]);
+  const [rated, setRatedState] = useState<{ [key: string]: number }>({});
 
   const setToken = (newToken: string) => {
     setTokenState(newToken);
@@ -41,11 +40,8 @@ function MyProvider(props: { children: ReactNode }) {
     setSearchState(newSearch);
   };
 
-  const addFavorite = (newFavorite: number) => {
-    setFavoriteState([...favorites, newFavorite]);
-  };
-  const removeFavorite = (removedFavorite: number) => {
-    setFavoriteState(favorites.filter((n) => n != removedFavorite));
+  const addRating = (id: string, rating: number) => {
+    setRatedState({ ...rated, [id]: rating });
   };
 
   return (
@@ -58,9 +54,8 @@ function MyProvider(props: { children: ReactNode }) {
         setRecipe,
         search,
         setSearch,
-        favorites,
-        addFavorite,
-        removeFavorite,
+        rated,
+        addRating,
       }}
     >
       {props.children}
