@@ -7,10 +7,8 @@ import {
   Badge,
   Card,
   Group,
-  ActionIcon,
   Rating,
 } from "@mantine/core"; // Import Mantine UI components
-import { IconHeartFilled } from "@tabler/icons-react";
 
 function RecipeDetails() {
   const { recipe, rated, addRating } = useMyContext(); // Access recipe from context
