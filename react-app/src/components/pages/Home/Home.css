@@ -1,0 +1,24 @@
+.home-design {
+  width: 100vw;
+  min-height: 82vh;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  color: #333;
+}
+
+p {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.movies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

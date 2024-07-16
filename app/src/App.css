@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures the app takes up at least the full viewport height */
+  overflow-x: hidden;
+}
+
+.App {
+  width: 100%;
+  max-width: 1200px; /* Adjust max-width as needed */
+  padding: 20px; /* Adjust padding as needed */
+}

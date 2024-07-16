@@ -1,0 +1,12 @@
+.button-design {
+  height: 3em;
+  width: 7.5em;
+
+  border-radius: 1em;
+
+  color: grey;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
